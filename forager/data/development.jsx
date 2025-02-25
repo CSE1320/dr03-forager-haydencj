@@ -12,7 +12,7 @@ const warningMessage = {
 
 const mushrooms = [
     {
-        "image": "/public/images/death_cap.jpg",
+        "image": "/public/images/deathcap.png",
         "name": "Death Cap",
         "scientific_name": "Amanita phalloides",
         "filterable": {
@@ -35,7 +35,7 @@ const mushrooms = [
         "region": "Europe, Asia, North America"
     },      
     {
-        "image": "/public/images/paddy_straw_mushroom.jpg",
+        "image": "/public/images/paddystraw.png",
         "name": "Paddy Straw Mushroom",
         "scientific_name": "Volvariella volvacea",
         "filterable": {
@@ -58,7 +58,7 @@ const mushrooms = [
         "region": "Asia, introduced elsewhere"
     },      
     {
-        "image": "/public/images/destroying_angel.jpg",
+        "image": "/public/images/destroyingangel.png",
         "name": "Destroying Angel",
         "scientific_name": "Amanita virosa",
         "filterable": {
@@ -81,7 +81,7 @@ const mushrooms = [
         "region": "Europe, North America"
     },      
     {
-        "image": "/public/images/false_death_cap.jpg",
+        "image": "/public/images/falsedeathcap.png",
         "name": "False Death Cap",
         "scientific_name": "Amanita citrina",
         "filterable": {
@@ -104,7 +104,7 @@ const mushrooms = [
         "region": "Europe, North America"
     },
     {
-        "image": "/public/images/puffball.jpg",
+        "image": "/public/images/puffball.png",
         "name": "Puffball",
         "scientific_name": "Calvatia gigantea",
         "filterable": {
