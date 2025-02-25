@@ -8,10 +8,21 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Nunito', 'sans-serif'], // Set Nunito as the default sans-serif font
+        sans: ['var(--font-nunito)', 'Nunito', 'sans-serif'],
+      },
+      fontWeight: {
+        thin: '200',
+        light: '300',
+        normal: '400',
+        medium: '500',
+        semibold: '600',
+        bold: '700',
+        extrabold: '800',
+        black: '900',
       },
       colors: {
-        primary: '#5f8f72',
+        primary: '#579076',
+        secondary: '#5f8f72',
         background: "var(--background)",
         foreground: "var(--foreground)",
       },

@@ -1,14 +1,13 @@
 import SearchBar from '@/components/SearchBar';
 import MushroomList from '@/components/MushroomList';
 import NavBar from '@/components/NavBar';
+import Header from '@/components/Header';
 
 export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header Section */}
-      <div className="bg-primary text-white p-6 rounded-b-3xl">
-        <h1 className="text-3xl font-bold">Hi, <span className="text-[#f3f3f3]">Chantelle!</span></h1>
-      </div>
+      <Header username="Chantelle" />
 
       {/* Content Section */}
       <div className="p-4">

@@ -1,11 +1,12 @@
 import { Nunito } from "next/font/google";
 import "./globals.css";
-import NavBar from '@/components/NavBar'
+import NavBar from '@/components/NavBar';
 
 const nunito = Nunito({
-  variable: "--font-nunito",
   subsets: ["latin"],
-  weight: ["400", "600", "700"], // Choose the weights you need
+  variable: "--font-nunito",
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900", "1000"],
+  style: ["normal", "italic"],
 });
 
 export const metadata = {
@@ -16,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${nunito.variable} antialiased`}>
+      <body className={`${nunito.variable} font-sans antialiased`}>
         {children}
         <NavBar />
       </body>
