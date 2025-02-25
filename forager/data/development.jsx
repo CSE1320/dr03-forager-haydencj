@@ -12,7 +12,7 @@ const warningMessage = {
 
 const mushrooms = [
     {
-        "image": "/public/images/deathcap.png",
+        "image": "/images/deathcap.png",
         "name": "Death Cap",
         "scientific_name": "Amanita phalloides",
         "filterable": {
@@ -35,7 +35,7 @@ const mushrooms = [
         "region": "Europe, Asia, North America"
     },      
     {
-        "image": "/public/images/paddystraw.png",
+        "image": "/images/paddystraw.png",
         "name": "Paddy Straw Mushroom",
         "scientific_name": "Volvariella volvacea",
         "filterable": {
@@ -58,7 +58,7 @@ const mushrooms = [
         "region": "Asia, introduced elsewhere"
     },      
     {
-        "image": "/public/images/destroyingangel.png",
+        "image": "/images/destroyingangel.png",
         "name": "Destroying Angel",
         "scientific_name": "Amanita virosa",
         "filterable": {
@@ -81,11 +81,11 @@ const mushrooms = [
         "region": "Europe, North America"
     },      
     {
-        "image": "/public/images/falsedeathcap.png",
+        "image": "/images/falsedeathcap.png",
         "name": "False Death Cap",
         "scientific_name": "Amanita citrina",
         "filterable": {
-          "is_toxic": "false",
+          "is_toxic": "true",
           "is_favorite": "false"
         },
         "characteristics": {
@@ -104,7 +104,7 @@ const mushrooms = [
         "region": "Europe, North America"
     },
     {
-        "image": "/public/images/puffball.png",
+        "image": "/images/puffball.png",
         "name": "Puffball",
         "scientific_name": "Calvatia gigantea",
         "filterable": {
@@ -127,6 +127,7 @@ const mushrooms = [
         "region": "Worldwide"
     }  
 ]
+
 // Two flavors of exporting:
 // export default dummyData; // Requires import dummyData from './data/development.js';
 

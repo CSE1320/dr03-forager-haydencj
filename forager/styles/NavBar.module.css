@@ -1,26 +1,39 @@
 /* NavBar.module.css */
-  .navbar {
-    display: flex;
-    justify-content: space-around;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #ffffff;
-    padding: 10px 0;
-    z-index: 100;
-  }
-  
-  .navItem {
-    font-size: 24px;
-    cursor: pointer;
-    flex: 1;
-    text-align: center;
-  }
-  
-  .navItem:hover {
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-  }
-  
+
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #5f8f72; /* Match the green color */
+  padding: 12px 0;
+  border-radius: 20px 20px 0 0;
+  z-index: 100;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual nav items */
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  flex: 1;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+/* Active (home icon highlight) */
+.active {
+  color: #c7f3c1; /* Light green for active icon */
+}
+
+/* Icon hover effect */
+.icon:hover {
+  opacity: 0.8;
+}
