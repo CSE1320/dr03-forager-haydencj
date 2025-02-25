@@ -14,7 +14,7 @@ export default function MushroomCard({ name, imageSrc, isToxic }) {
           <img
             className="object-cover mt-1"
             src={imageSrc}
-            alt={`Image of ${name}`}
+            alt={`Image of ${name} mushroom`}
             width={90}
             height={95}
           />

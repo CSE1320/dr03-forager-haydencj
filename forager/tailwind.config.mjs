@@ -7,7 +7,11 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Nunito', 'sans-serif'], // Set Nunito as the default sans-serif font
+      },
       colors: {
+        primary: '#5f8f72',
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
