@@ -1,4 +1,4 @@
-export default function SearchBar({ placeholder }) {
+export default function SearchBar({ placeholder, onFilterClick }) {
   return (
     <div className="flex items-center gap-3 w-full max-w-md mx-auto">
       <div className="flex items-center bg-white rounded-full shadow-sm px-4 py-2 w-full">
@@ -15,7 +15,10 @@ export default function SearchBar({ placeholder }) {
           className="flex-1 bg-transparent outline-none text-gray-600 placeholder-gray-400 ml-2"
         />
       </div>
-      <button className="flex items-center justify-center p-2 rounded-full bg-transparent hover:bg-gray-100">
+      <button
+        className="flex items-center justify-center p-2 rounded-full bg-transparent hover:bg-gray-100"
+        onClick={onFilterClick} // Now triggers the filter modal
+      >
         <img
           src="/icons/filter_icon.svg"
           alt="Filter Icon"
