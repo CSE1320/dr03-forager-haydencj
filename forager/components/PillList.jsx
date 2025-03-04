@@ -14,12 +14,12 @@ export default function PillList({ title, items = [], initialSelectedItem = "", 
 
   return (
     <div className={`w-[321px] ${className}`}>
-      {title && <h3 className="text-[16px] font-medium text-[#000000] mb-3">{title}</h3>}
+      {title && <h3 className="text-xl font-bold text-black mb-3">{title}</h3>}
       <div className="flex flex-wrap gap-2">
         {items.map((item) => (
           <Pill
             key={item}
-            variant={item === selectedItem ? "primary" : "secondary"}
+            isActive={initialSelectedItem === item} // Correctly toggles between active & inactive
             onClick={() => handlePillClick(item)}
           >
             {item}

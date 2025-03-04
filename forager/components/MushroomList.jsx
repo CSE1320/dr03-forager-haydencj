@@ -1,7 +1,6 @@
-import mushrooms from '../data/development';
 import MushroomCard from './MushroomCard';
 
-export default function MushroomList({ title }) {
+export default function MushroomList({ title, mushrooms }) {
   return (
     <div className="flex flex-col">
       <h2 className="text-xl font-semibold text-gray-800 mt-4 mb-4">{title}</h2>

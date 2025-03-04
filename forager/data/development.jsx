@@ -17,7 +17,9 @@ const mushrooms = [
         "scientific_name": "Amanita phalloides",
         "filterable": {
           "is_toxic": "true",
-          "is_favorite": "false"
+          "is_favorite": "false",
+          "is_edible": "false",
+          "is_medicinal": "false"
         },
         "characteristics": {
           "diameter": "5–15 cm",
@@ -40,7 +42,9 @@ const mushrooms = [
         "scientific_name": "Volvariella volvacea",
         "filterable": {
           "is_toxic": "false",
-          "is_favorite": "true"
+          "is_favorite": "false",
+          "is_edible": "true",
+          "is_medicinal": "false"
         },
         "characteristics": {
           "diameter": "5–12 cm",
@@ -55,7 +59,7 @@ const mushrooms = [
           "habitat": "Rice straw beds"
         },
         "description": "An edible mushroom cultivated in East and Southeast Asia, featuring a smooth gray-brown cap and pink gills.",
-        "region": "Asia, introduced elsewhere"
+        "region": "Asia"
     },      
     {
         "image": "/images/destroyingangel.png",
@@ -63,7 +67,9 @@ const mushrooms = [
         "scientific_name": "Amanita virosa",
         "filterable": {
           "is_toxic": "true",
-          "is_favorite": "false"
+          "is_favorite": "false",
+          "is_edible": "false",
+          "is_medicinal": "false"
         },
         "characteristics": {
           "diameter": "5–10 cm",
@@ -86,7 +92,9 @@ const mushrooms = [
         "scientific_name": "Amanita citrina",
         "filterable": {
           "is_toxic": "true",
-          "is_favorite": "false"
+          "is_favorite": "false",
+          "is_edible": "false",
+          "is_medicinal": "false"
         },
         "characteristics": {
           "diameter": "5–10 cm",
@@ -109,7 +117,9 @@ const mushrooms = [
         "scientific_name": "Calvatia gigantea",
         "filterable": {
           "is_toxic": "false",
-          "is_favorite": "true"
+          "is_favorite": "false",
+          "is_edible": "false",
+          "is_medicinal": "false"
         },
         "characteristics": {
           "diameter": "10–70 cm",
