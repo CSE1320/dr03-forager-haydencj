@@ -25,9 +25,18 @@ export default function MushroomPage() {
 
       {/* Content Section */}
       <div className="p-4 bg-[#F2F2F2] space-y-4">
+        {/* 🔴 Not what you expected? Report Error Section */}
+        <div className="flex justify-evenly items-center ">
+          <p className="text-gray-600 text-sm">Not what you expected?</p>
+          <button className="flex items-center bg-[#FF5050] text-white py-2 px-2 rounded-[10px] font-medium">
+            Report Error
+            <img src="icons/chevron_right.png" alt="Report Error Button" />
+          </button>
+        </div>
+
         {/* Warning Message */}
         {showWarning && (
-          <Message message="This is a toxic species, proceed with caution." />
+          <Message/>
         )}
 
         {/* Confidence Match Label */}

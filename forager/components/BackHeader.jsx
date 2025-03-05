@@ -11,7 +11,7 @@ export default function BackHeader({ title }) {
       </button>
 
       {/* Centered Title */}
-      <h1 className="text-2xl font-semibold mx-auto">{title}</h1>
+      <h1 className="text-3xl font-semibold pt-2 mx-auto">{title}</h1>
     </div>
   );
 }
