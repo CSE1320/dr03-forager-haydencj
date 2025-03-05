@@ -7,8 +7,13 @@ import Header from "@/components/Header";
 import FilterSettings from "@/components/FilterSettings";
 import mushrooms from "@/data/development";
 import Pill from "@/components/Pill";
+import { useMushroom } from "../context/MushroomContext";
+import { useRouter } from "next/navigation";
 
 export default function DashboardPage() {
+  const { setSelectedMushroom } = useMushroom(); // Access context
+  const router = useRouter();
+
   const [isFilterOpen, setFilterOpen] = useState(false);
   const [filters, setFilters] = useState({
     tags: "",
@@ -35,6 +40,12 @@ export default function DashboardPage() {
 
     return matchesSearch && matchesRegion && matchesTag && matchesCategory;
   });
+  
+  // Handle mushroom selection
+  const handleMushroomClick = (mushroom) => {
+    setSelectedMushroom(mushroom);
+    router.push("/mushroom"); // Navigate to MushroomPage
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-primary">
@@ -68,7 +79,7 @@ export default function DashboardPage() {
           )}
           
           {/* Mushroom list */}
-          <MushroomList title="My Collection" mushrooms={filteredMushrooms} />
+          <MushroomList title="My Collection" mushrooms={filteredMushrooms} onMushroomClick={handleMushroomClick}/>
         </div>
       </div>
       

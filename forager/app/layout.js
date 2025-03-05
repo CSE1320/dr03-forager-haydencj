@@ -1,6 +1,7 @@
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import NavBar from '@/components/NavBar';
+import { MushroomProvider } from "./context/MushroomContext"; // Import the provider
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -18,8 +19,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${nunito.variable} font-sans antialiased`}>
-        {children}
-        <NavBar />
+        <MushroomProvider>
+          {children}
+          <NavBar />
+        </MushroomProvider>
       </body>
     </html>
   );
