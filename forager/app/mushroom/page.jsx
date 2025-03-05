@@ -8,6 +8,7 @@ import MushroomList from "@/components/MushroomList";
 import NavBar from "@/components/NavBar";
 import Mushroom from "@/components/Mushroom";
 import FavoriteButton from "@/components/FavoriteButton";
+import PopupWarning from "@/components/PopupWarning";
 import { useMushroom } from "../context/MushroomContext";
 import mushrooms from "@/data/development";
 import { handleMushroomClick } from "../lib/utils";
@@ -19,10 +20,15 @@ export default function MushroomPage() {
   // Default to "Death Cap" if no mushroom was selected
   const mushroom = selectedMushroom || mushrooms.find((m) => m.name === "Death Cap") || {};
 
+  // States
   const [showWarning, setShowWarning] = useState(mushroom.filterable?.is_toxic === "true");
-
-  // Favorite State
+  const [showPopup, setShowPopup] = useState(true); // Control the popup visibility
   const [isFavorite, setIsFavorite] = useState(mushroom.filterable.is_favorite === "true");
+
+  // Sync state when the selected mushroom changes
+  useEffect(() => {
+    setIsFavorite(mushroom.filterable.is_favorite === "true");
+  }, [mushroom]); // Runs when `mushroom` changes
 
   // Handle Favorite Toggle
   const toggleFavorite = () => {
@@ -36,13 +42,11 @@ export default function MushroomPage() {
     });
   };
 
-  // Sync state when the selected mushroom changes
-  useEffect(() => {
-    setIsFavorite(mushroom.filterable.is_favorite === "true");
-  }, [mushroom]); // Runs when `mushroom` changes
-
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
+      {/* Popup Overlay */}
+      {showPopup && <PopupWarning onClose={() => setShowPopup(false)} />}
+
       {/* Header */}
       <BackHeader title="Match Results" />
 
