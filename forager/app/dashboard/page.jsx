@@ -37,35 +37,43 @@ export default function DashboardPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen flex flex-col bg-primary">
+      {/* Header */}
       <Header username="Chantelle" />
-
-      <div className="p-4">
-        <SearchBar 
-          placeholder="Search for a mushroom"
-          onFilterClick={() => setFilterOpen(true)}
-          onSearch={setSearchQuery} // Update search state
-        />
-
-        {/* Show active filters as Green Pills */}
-        {Object.values(filters).some((filter) => filter) && (
-          <div className="mt-3 flex gap-2 flex-wrap">
-            {Object.entries(filters)
-              .filter(([_, value]) => value) // Show only active filters
-              .map(([key, value]) => (
-                <Pill key={key} isActive={true} onClick={() => setFilters((prev) => ({ ...prev, [key]: "" }))}>
-                  {value}
-                </Pill>
-              ))}
-          </div>
-        )}
-
-        {/* Pass filtered mushrooms */}
-        <MushroomList title="My Collection" mushrooms={filteredMushrooms} />
+      
+      {/* Content Section with rounded top */}
+      <div className="flex-1 bg-[#F2F2F2] rounded-t-[40px] -mt-5 relative z-10">
+        <div className="p-4">
+          <SearchBar 
+            placeholder="Search for a mushroom" 
+            onFilterClick={() => setFilterOpen(true)} 
+            onSearch={setSearchQuery}
+          />
+          
+          {/* Active filters display */}
+          {Object.values(filters).some((filter) => filter) && (
+            <div className="mt-3 flex gap-2 flex-wrap">
+              {Object.entries(filters)
+                .filter(([_, value]) => value)
+                .map(([key, value]) => (
+                  <Pill
+                    key={key}
+                    isActive={true}
+                    onClick={() => setFilters((prev) => ({ ...prev, [key]: "" }))}
+                  >
+                    {value}
+                  </Pill>
+                ))}
+            </div>
+          )}
+          
+          {/* Mushroom list */}
+          <MushroomList title="My Collection" mushrooms={filteredMushrooms} />
+        </div>
       </div>
-
+      
       <NavBar />
-
+      
       {/* Filter Settings Modal */}
       <FilterSettings
         isOpen={isFilterOpen}

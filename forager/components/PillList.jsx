@@ -4,7 +4,6 @@ import { useState } from "react"
 import Pill from "./Pill"
 
 export default function PillList({ title, items = [], initialSelectedItem = "", onItemClick, className = "" }) {
-  // Removed 'const' from the destructuring since useState values need to be reassignable
   const [selectedItem, setSelectedItem] = useState(initialSelectedItem)
 
   const handlePillClick = (item) => {
