@@ -9,6 +9,7 @@ import mushrooms from "@/data/development";
 import Pill from "@/components/Pill";
 import { useMushroom } from "../context/MushroomContext";
 import { useRouter } from "next/navigation";
+import { handleMushroomClick } from "../lib/utils";
 
 export default function DashboardPage() {
   const { setSelectedMushroom } = useMushroom(); // Access context
@@ -40,12 +41,6 @@ export default function DashboardPage() {
 
     return matchesSearch && matchesRegion && matchesTag && matchesCategory;
   });
-  
-  // Handle mushroom selection
-  const handleMushroomClick = (mushroom) => {
-    setSelectedMushroom(mushroom);
-    router.push("/mushroom"); // Navigate to MushroomPage
-  };
 
   return (
     <div className="min-h-screen flex flex-col bg-primary">
@@ -79,7 +74,14 @@ export default function DashboardPage() {
           )}
           
           {/* Mushroom list */}
-          <MushroomList title="My Collection" mushrooms={filteredMushrooms} onMushroomClick={handleMushroomClick}/>
+          <MushroomList
+          title="My Collection"
+          mushrooms={filteredMushrooms} // Remove selected mushroom
+          columns={3}
+          showMatchPercent={false}
+          onMushroomClick={(mushroom) => handleMushroomClick(mushroom, setSelectedMushroom, router)}
+          />
+
         </div>
       </div>
       
