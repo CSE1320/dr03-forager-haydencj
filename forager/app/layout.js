@@ -1,6 +1,6 @@
 import { Nunito } from "next/font/google";
 import "./globals.css";
-import { MushroomProvider } from "./context/MushroomContext"; // Import the provider
+import { MushroomProvider } from "./lib/MushroomContext"; // Import the provider
 
 const nunito = Nunito({
   subsets: ["latin"],

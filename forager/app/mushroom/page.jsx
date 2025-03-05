@@ -10,7 +10,7 @@ import Mushroom from "@/components/Mushroom";
 import FavoriteButton from "@/components/FavoriteButton";
 import PopupWarning from "@/components/PopupWarning";
 import InfoPopup from "@/components/InfoPopup";
-import { useMushroom } from "../context/MushroomContext";
+import { useMushroom } from "../lib/MushroomContext";
 import mushrooms from "@/data/development";
 import { handleMushroomClick } from "../lib/utils";
 

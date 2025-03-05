@@ -1,13 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBar from "@/components/SearchBar";
 import MushroomList from "@/components/MushroomList";
 import NavBar from "@/components/NavBar";
 import Header from "@/components/Header";
 import FilterSettings from "@/components/FilterSettings";
-import mushrooms from "@/data/development";
+import { mushrooms, userFilters } from "@/data/development";
 import Pill from "@/components/Pill";
-import { useMushroom } from "../context/MushroomContext";
+import { useMushroom } from "../lib/MushroomContext";
 import { useRouter } from "next/navigation";
 import { handleMushroomClick } from "../lib/utils";
 
@@ -15,13 +15,17 @@ export default function DashboardPage() {
   const { setSelectedMushroom } = useMushroom(); // Access context
   const router = useRouter();
 
+  // State
   const [isFilterOpen, setFilterOpen] = useState(false);
-  const [filters, setFilters] = useState({
-    tags: "",
-    regions: "",
-    category: "",
-  });
-  const [searchQuery, setSearchQuery] = useState(""); // State for search input
+  const [filters, setFilters] = useState(userFilters);
+  const [searchQuery, setSearchQuery] = useState(""); 
+
+  // Persist filters when they change
+  useEffect(() => {
+    userFilters.tags = filters.tags;
+    userFilters.regions = filters.regions;
+    userFilters.category = filters.category;
+  }, [filters]);
 
   // Filtering logic
   const filteredMushrooms = mushrooms.filter((mushroom) => {

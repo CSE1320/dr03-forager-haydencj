@@ -150,10 +150,16 @@ const userCharacteristics = {
   habitat: ""
 };
 
+const userFilters = {
+  tags: "",
+  regions: "",
+  category: "",
+};
+
 // Two flavors of exporting:
 // export default dummyData; // Requires import dummyData from './data/development.js';
 
 export default mushrooms // import mushrooms from './data/development.js';
 
 // More than one export.
-export { userCharacteristics, warningMessage, dummyData }; // Requires import {warningMessage, dummyData} from './data/development.js';
+export { mushrooms, userFilters, userCharacteristics, warningMessage, dummyData }; // Requires import {warningMessage, dummyData} from './data/development.js';
