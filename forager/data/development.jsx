@@ -10,8 +10,6 @@ const warningMessage = {
     message: "This is a toxic species, proceed with caution."
 };
 
-const filters = []
-
 const mushrooms = [
     {
         "image": "/images/deathcap.png",

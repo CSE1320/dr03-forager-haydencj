@@ -9,6 +9,7 @@ import NavBar from "@/components/NavBar";
 import Mushroom from "@/components/Mushroom";
 import FavoriteButton from "@/components/FavoriteButton";
 import PopupWarning from "@/components/PopupWarning";
+import InfoPopup from "@/components/InfoPopup";
 import { useMushroom } from "../context/MushroomContext";
 import mushrooms from "@/data/development";
 import { handleMushroomClick } from "../lib/utils";
@@ -24,6 +25,7 @@ export default function MushroomPage() {
   const [showWarning, setShowWarning] = useState(mushroom.filterable?.is_toxic === "true");
   const [showPopup, setShowPopup] = useState(true); // Control the popup visibility
   const [isFavorite, setIsFavorite] = useState(mushroom.filterable.is_favorite === "true");
+  const [showInfoPopup, setShowInfoPopup] = useState(false); // Info Popup State
 
   // Sync state when the selected mushroom changes
   useEffect(() => {
@@ -110,16 +112,35 @@ export default function MushroomPage() {
         {/* Description */}
         <p className="text-gray-700 p-6 pb-0">{mushroom.description || "No description available."}</p>
 
-        {/* Similar Matches Section */}
+
+
+        {/* Similar Matches + Information Section */}
         {/* 2-column grid with match percentages */}
-        <MushroomList
-          title="Similar Matches"
-          mushrooms={mushrooms.filter((m) => m.name !== mushroom.name)} // Remove selected mushroom
-          columns={2}
-          showMatchPercent={true}
-          onMushroomClick={(mushroom) => handleMushroomClick(mushroom, setSelectedMushroom, router)}
-          className="text-center"
-        />
+        <div className="relative">
+          <button onClick={() => setShowInfoPopup(true)} className="absolute right-16 top-5 ">
+            <img
+              src="icons/info.svg"
+              alt="Information Icon"
+              className="w-6 h-6 object-contain"
+            />
+          </button>
+
+          {/* 🆕 Info Popup (Appears Over Similar Matches) */}
+          <InfoPopup
+            isVisible={showInfoPopup}
+            onClose={() => setShowInfoPopup(false)}
+          />
+
+          <MushroomList
+            title="Similar Matches"
+            mushrooms={mushrooms.filter((m) => m.name !== mushroom.name)} // Remove selected mushroom
+            columns={2}
+            showMatchPercent={true}
+            onMushroomClick={(mushroom) => handleMushroomClick(mushroom, setSelectedMushroom, router)}
+            className="text-center"
+          />
+        </div>
+
 
       </div>
 
