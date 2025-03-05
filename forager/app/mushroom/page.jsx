@@ -24,7 +24,7 @@ export default function MushroomPage() {
       <BackHeader title="Match Results" />
 
       {/* Content Section */}
-      <div className="p-4 space-y-4">
+      <div className="p-4 bg-[#F2F2F2] space-y-4">
         {/* Warning Message */}
         {showWarning && (
           <Message message="This is a toxic species, proceed with caution." />

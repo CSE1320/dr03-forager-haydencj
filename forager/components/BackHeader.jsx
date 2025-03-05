@@ -1,21 +1,17 @@
-import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function BackHeader({ title }) {
   const router = useRouter();
 
   return (
-    <div className="flex items-center bg-primary text-white p-4 rounded-b-lg shadow-md">
-      {/* Back Button */}
-      <button onClick={() => router.back()} className="p-2">
-        <ArrowLeft className="h-6 w-6" />
+    <div className="relative flex items-center bg-primary text-white pt-12 pb-4 px-6 rounded-b-[30px] shadow-md">
+      {/* Back Button (Left-Aligned) */}
+      <button onClick={() => router.back()} className="absolute left-4">
+        <img width="30px" height="30px" src="icons/back.svg" alt="Back" />
       </button>
 
       {/* Centered Title */}
-      <h1 className="flex-grow text-center text-lg font-bold">{title}</h1>
-
-      {/* Spacer to balance layout */}
-      <div className="w-6"></div>
+      <h1 className="text-2xl font-semibold mx-auto">{title}</h1>
     </div>
   );
 }
