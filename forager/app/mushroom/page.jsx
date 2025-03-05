@@ -68,10 +68,15 @@ export default function MushroomPage() {
           <Message />
         )}
 
-        {/* 🆕 Compare Text (Moved Above Mushroom Component) */}
-        <div className="flex justify-end text-gray-500 text-sm pr-2">
-          Compare
-          <ChevronRight className="w-3 h-3 ml-1 mt-1" />
+        {/* Compare Button */}
+        <div className="flex justify-end pr-2">
+          <button
+            onClick={() => { router.push("/comparison"); }}
+            className="flex items-center text-gray-500 text-sm hover:text-gray-700 transition"
+          >
+            Compare
+            <ChevronRight className="w-3 h-3 ml-1 mt-1" />
+          </button>
         </div>
 
         {/* 🆕 Mushroom Component (Now Includes Name, Image, and Confidence Match) */}

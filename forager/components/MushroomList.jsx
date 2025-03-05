@@ -17,7 +17,7 @@ export default function MushroomList({
         <h2 className="text-2xl font-bold text-[#324053] mt-4 mb-4">{title}</h2>
       )}
 
-      <div className="flex justify-center w-full pb-24"> {/* Center container */}
+      <div className="flex justify-center w-full mb-24"> {/* Center container */}
         <ul
           className={`grid list-none p-0 ${columns === 2 ? 'grid-cols-2 gap-10' : // 100px * 2 + 12px gap
             columns === 3 ? 'grid-cols-3 gap-8' : // 100px * 3 + 24px gap
