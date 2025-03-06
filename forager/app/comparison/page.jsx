@@ -31,7 +31,7 @@ export default function MushroomComparisonPage() {
           <div className="w-1/2 text-center">
             <Mushroom
               name={selectedMushroom.name}
-              imageSrc="images/userimage.png"
+              imageSrc={`/images/userimage.png?timestamp=${Date.now()}`} // Add cache-busting query
               className="pt-6"
             />
             <h3 className="text-[#324053] text-2xl font-bold my-2">Your Photo</h3>

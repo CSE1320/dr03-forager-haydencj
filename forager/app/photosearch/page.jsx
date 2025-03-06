@@ -13,38 +13,39 @@ export default function PhotoSearch() {
   const [cameraInitialized, setCameraInitialized] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [cameraError, setCameraError] = useState(false); // Handle permission denial
 
   useEffect(() => {
-    if (cameraInitialized) return;
-
-    const startCamera = async () => {
-      try {
-        const constraints = {
-          video: {
-            facingMode: "environment",
-            width: { ideal: 1280 },
-            height: { ideal: 720 },
-          },
-        };
-
-        const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
-        setStream(mediaStream);
-
-        if (videoRef.current) {
-          videoRef.current.srcObject = mediaStream;
-          videoRef.current.onloadedmetadata = () => {
-            videoRef.current.play().then(() => setCameraInitialized(true));
-          };
-        }
-      } catch (error) {
-        console.error("Error accessing camera:", error);
-      }
-    };
-
     startCamera();
-
     return () => stopCamera();
-  }, [cameraInitialized]);
+  }, []);
+
+  const startCamera = async () => {
+    try {
+      setCameraError(false); // Reset error state
+
+      const constraints = {
+        video: {
+          facingMode: "environment",
+          width: { ideal: 1280 },
+          height: { ideal: 720 },
+        },
+      };
+
+      const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
+      setStream(mediaStream);
+
+      if (videoRef.current) {
+        videoRef.current.srcObject = mediaStream;
+        videoRef.current.onloadedmetadata = () => {
+          videoRef.current.play().then(() => setCameraInitialized(true));
+        };
+      }
+    } catch (error) {
+      console.log("Camera access denied:", error);
+      setCameraError(true); // Show error message
+    }
+  };
 
   const stopCamera = () => {
     if (stream) {
@@ -119,14 +120,30 @@ export default function PhotoSearch() {
           </button>
         </div>
 
-        {/* Camera Preview */}
+        {/* Camera Preview or Error Message */}
         <div className="flex-1 relative w-full h-full">
-          <video ref={videoRef} autoPlay playsInline className="absolute inset-0 w-full h-full object-cover" />
+          {cameraError ? (
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center">
+              <p className="text-lg mb-4">📷 Please allow camera access</p>
+              <button
+                onClick={startCamera}
+                className="px-4 py-2 bg-white text-black rounded-md"
+              >
+                Retry
+              </button>
+            </div>
+          ) : (
+            <>
+              {/* Camera Preview */}
+              <video ref={videoRef} autoPlay playsInline className="absolute inset-0 w-full h-full object-cover" />
 
-          {/* Focus Box */}
-          <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-            <div className="w-32 h-32 sm:w-48 sm:h-48 border-2 border-white"></div>
-          </div>
+              {/* Focus Box (Only appears when camera is active) */}
+              <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+                <div className="w-32 h-32 sm:w-48 sm:h-48 border-2 border-white"></div>
+              </div>
+            </>
+          )}
+
         </div>
 
         {/* Bottom Bar */}
