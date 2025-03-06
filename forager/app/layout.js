@@ -1,6 +1,7 @@
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import { MushroomProvider } from "./lib/MushroomContext"; // Import the provider
+import { AnimatePresence } from "framer-motion";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -18,9 +19,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${nunito.variable} font-sans antialiased`}>
-        <MushroomProvider>
-          {children}
-        </MushroomProvider>
+        <AnimatePresence mode="wait">
+          <MushroomProvider>
+            {children}
+          </MushroomProvider>
+        </AnimatePresence>
       </body>
     </html>
   );

@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import FilterSettings from "@/components/FilterSettings";
 import { mushrooms, userFilters } from "@/data/development";
 import Pill from "@/components/Pill";
+import PageWrapper from "@/components/PageWrapper";
 import { useMushroom } from "../lib/MushroomContext";
 import { useRouter } from "next/navigation";
 import { handleMushroomClick } from "../lib/utils";
@@ -47,6 +48,7 @@ export default function DashboardPage() {
   });
 
   return (
+    <PageWrapper>
     <div className="min-h-screen flex flex-col bg-primary">
       {/* Header */}
       <Header username="Chantelle" />
@@ -99,5 +101,6 @@ export default function DashboardPage() {
         setFilters={setFilters}
       />
     </div>
+    </PageWrapper>
   );
 }

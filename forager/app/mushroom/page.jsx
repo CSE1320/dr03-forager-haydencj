@@ -10,6 +10,7 @@ import Mushroom from "@/components/Mushroom";
 import FavoriteButton from "@/components/FavoriteButton";
 import PopupWarning from "@/components/PopupWarning";
 import InfoPopup from "@/components/InfoPopup";
+import PageWrapper from "@/components/PageWrapper";
 import { useMushroom } from "../lib/MushroomContext";
 import mushrooms from "@/data/development";
 import { handleMushroomClick } from "../lib/utils";
@@ -45,6 +46,7 @@ export default function MushroomPage() {
   };
 
   return (
+    <PageWrapper>
     <div className="flex flex-col min-h-screen bg-gray-100">
       {/* Popup Overlay */}
       {showPopup && <PopupWarning onClose={() => setShowPopup(false)} />}
@@ -152,5 +154,6 @@ export default function MushroomPage() {
       {/* Bottom Navigation */}
       <NavBar />
     </div>
+    </PageWrapper>
   );
 }
