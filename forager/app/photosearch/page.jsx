@@ -101,7 +101,7 @@ export default function PhotoSearch() {
   return (
     <div className="w-full h-screen flex flex-col bg-black">
       {/* Top Bar */}
-      <div className="absolute top-0 left-0 right-0 flex justify-between items-center p-4 z-10">
+      <div className="absolute top-0 left-0 right-0 flex justify-between items-center p-6 z-10 bg-black bg-opacity-75">
         <button onClick={() => { stopCamera(); router.push("/dashboard"); }}>
           <img src="/icons/back.svg" alt="Back" className="w-6 h-6 sm:w-8 sm:h-8" />
         </button>
@@ -121,7 +121,7 @@ export default function PhotoSearch() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-between items-center p-6 pt-0">
+      <div className="absolute bottom-0 left-0 right-0 flex justify-between items-center p-6 pt-5  bg-black bg-opacity-75">
         <button onClick={openFileInput}>
           <img src="/icons/gallery.svg" alt="Gallery" className="w-8 h-8 sm:w-10 sm:h-10" />
         </button>
